@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary" class="header">
+    <ion-title>Swarm Message Center</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-list>
+      <ion-item *ngFor="let contact of messageservice.tempMessageList" (click)="viewMessages(contact)" style="border-bottom: 1px solid grey">
+        <ion-avatar slot="start">
+          <img src="{{contact.contact.photoURL}}">
+        </ion-avatar>
+      
+        <div *ngIf="contact?.read != true" class="messagelist">
+          <h4 > <b> {{contact.contact.displayName}} </b>  <Button class="newmessage">Unread</Button></h4>
+          <p > <b> {{contact.message}} </b>  </p> 
+        </div>
+        <div *ngIf="contact?.read == true" class="messagelist">
+          <h4 > <b> {{contact.contact.displayName}} </b> </h4>
+          <p > {{contact.message}}  </p> 
+        </div>
+        
+        </ion-item>
+    </ion-list>
+    </ion-content>

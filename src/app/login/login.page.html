@@ -1,0 +1,30 @@
+
+<ion-content class="background">
+     <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+    <ion-card-content class="card">
+        <h1 *ngIf="activeUser">Welcome {{ (authService.user | async)?.email }}!</h1>
+
+      <ion-list no-lines *ngIf="!activeUser"> 
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+          <ion-input autocomplete="on" type="text" inputmode="email" placeholder="Email" [(ngModel)]="credentials.email" ></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+          <ion-input autocomplete="on" type="password" inputmode="password" placeholder="Password" [(ngModel)]="credentials.password" ></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 10px;"></div>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-button shape="round" expand="block" fill="outline" color="primary" type="submit" ng-submit="login()" (click)="login()">Login</ion-button>
+        <div class="spacer" style="height: 10px;"></div>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-button fill="clear" expand="full" shape="round" color="light" tappable routerLink="/signup">Don't have an account? Sign up</ion-button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

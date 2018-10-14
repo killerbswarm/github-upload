@@ -1,0 +1,27 @@
+
+<ion-header> 
+  <ion-toolbar color="primary" class="header">
+    <ion-title>Add New Contact</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="tabs/(contacts:contacts)"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card>
+    <ion-card-content class="card">
+       <ion-list >
+         <ion-item>  
+             <ion-input type="text" placeholder="Name" [(ngModel)]="newcontact.displayName"></ion-input>
+         </ion-item>
+         <ion-item>  
+          <ion-input type="text" placeholder="Phone" [(ngModel)]="newcontact.phone"></ion-input>
+      </ion-item>
+        <div class="center">
+        <ion-button size="small" shape="round" expand="outline" color="tertiary" (click)="signupContact()">Add Contact</ion-button>
+        </div>
+      </ion-list>    
+    </ion-card-content>
+  </ion-card>
+  </ion-content>>

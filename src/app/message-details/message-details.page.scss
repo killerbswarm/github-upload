@@ -1,0 +1,105 @@
+.chat{
+    width: auto;
+}
+.bubble{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 6px 18px;
+    position: relative;
+    vertical-align: top;
+}
+
+.bubble::before {
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 7px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+
+.me {
+    float: left;   
+    margin: 5px 5px 5px 20px;
+    padding: 0px 10px 0px 10px  
+}
+
+.me::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;           
+}
+
+.you {
+    background-color: #ddff44;
+    float: right;    
+    margin: 5px 20px 5px 5px;
+    padding: 0px 10px 0px 10px
+}
+
+.you::before {
+    background-color: #ddff44;
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;    
+}
+.center {
+    background-color: rgb(138, 201, 238);
+    float: right;    
+    margin: 5px 20px 5px 5px;
+    padding: 0px 10px 0px 10px             
+}
+.center::before {
+    background-color: rgb(138, 201, 238);
+    box-shadow: 2px -2px 2px 0 rgba(180, 228, 8, 0.4);
+    right: -9px;        
+}
+.chatwindow {
+    padding-bottom: 70px;
+}
+.ts-left { 
+    font-size: 8px;
+    float: left;
+    margin: auto;
+    padding: 0;
+}
+.ts-right {
+    float:right;
+    font-size: 8px;
+    text-align: right;
+    margin: auto;
+    padding: 0;
+}
+.ts-system {
+    float:right;
+    font-size: 8px;
+    text-align: right;
+    margin: auto;
+    padding: 0;
+}
+.mb {
+    background-color: rgb(170, 27, 27);
+    width: auto;
+}
+h3 {
+    font-size: 14px;
+    margin:10px 10px 5px 10px;
+}
+img {
+    max-width: 40px;
+    width: 40px;
+}
+.imgsize {
+    transform: scale(1.25, 1.0);
+    -ms-transform: scale(1.25, 1.0);
+    -webkit-transform: scale(1.25, 1.0);
+}
+.messagesendtext {
+    color: black;
+}

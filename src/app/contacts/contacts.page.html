@@ -1,0 +1,42 @@
+<ion-header> 
+  <ion-toolbar color="primary" class="header">
+    <ion-title>Contacts</ion-title>
+    <ion-buttons slot="end" color="secondary">
+        <ion-button icon-only (click)="addContact()" color="secondary">
+          <ion-icon name="person-add"></ion-icon>
+        </ion-button>
+      </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+  
+  
+  <ion-content>
+    <ion-searchbar (input)="searchuser($event)" (ionClear)="resetChanges()" placeholder="Search"></ion-searchbar>
+  <ion-list >
+    <ion-list >
+      <ion-item-sliding *ngFor="let contact of filteredcontacts">
+        <ion-item >
+          <ion-avatar item-left class="avatar">
+            <img src="{{contact.photoURL}}">
+          </ion-avatar>
+          <h2 class="listing">{{contact.displayName}}</h2>
+        </ion-item>
+        <ion-item-options slide="left">
+          <ion-button color="secondary" (click)="messageContact(contact)">
+                <ion-icon name="send"></ion-icon>
+                Send Message
+          </ion-button>
+          <ion-button class="editbutton" (click)="viewContact(contact.id)">
+            <ion-icon name="person-add"></ion-icon>
+            Edit
+          </ion-button>
+          <ion-button color="danger" (click)="deleteContact(contact.id)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </ion-button>
+        </ion-item-options>
+        
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+  </ion-content>

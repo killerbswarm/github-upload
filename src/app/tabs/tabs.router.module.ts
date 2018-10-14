@@ -2,9 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { HomePage } from '../home/home.page';
-import { AboutPage } from '../about/about.page';
-import { ContactPage } from '../contact/contact.page';
+//import { HomePage } from '../home/home.page';
+import { MessagesPage } from '../messages/messages.page';
+import { ProfilePage } from '../profile/profile.page';
+import { LoginPage } from '../login/login.page';
+import { ContactsPage } from '../contacts/contacts.page';
+import { ContactAddPage } from '../contact-add/contact-add.page';
+import { ContactDetailsPage } from '../contact-details/contact-details.page';
+import { AuthGuard } from '../auth.guard';
+import { MessageDetailsPage } from '../message-details/message-details.page';
 
 const routes: Routes = [
   {
@@ -13,31 +19,55 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/tabs/(home:home)',
+        redirectTo: '/tabs/(messages:messages)',
         pathMatch: 'full',
       },
       {
-        path: 'home',
-        outlet: 'home',
-        component: HomePage
+        path: 'messages',
+        outlet: 'messages',
+        component: MessagesPage,
+        canActivate: [AuthGuard]
       },
       {
-        path: 'about',
-        outlet: 'about',
-        component: AboutPage
+        path: 'contacts',
+        outlet: 'contacts',
+        component: ContactsPage,
+        canActivate: [AuthGuard]
       },
       {
-        path: 'contact',
-        outlet: 'contact',
-        component: ContactPage
-      }
+        path: 'profile',
+        outlet: 'profile',
+        component: ProfilePage,
+        canActivate: [AuthGuard]
+      },
+      { path: "contact-add", 
+        component: ContactAddPage, 
+        outlet: "contacts",
+        canActivate: [AuthGuard]
+     
+      },
+      { path: "contact-details/:contact", 
+        component: ContactDetailsPage, 
+        outlet: "contacts", 
+        canActivate: [AuthGuard]
+      },
+      { path: "message-details/:contact", 
+      component: MessageDetailsPage, 
+      outlet: "messages", 
+      canActivate: [AuthGuard]
+    },
+    { path: "message-details/:contact/:displayName", 
+      component: MessageDetailsPage, 
+      outlet: "messages", 
+      canActivate: [AuthGuard]
+    },
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/(home:home)',
+    redirectTo: '/tabs/(messages:messages)',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({

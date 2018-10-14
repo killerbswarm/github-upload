@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary" class="header">
+    <ion-title>Admin Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+  <div class="profile-image" >
+    <label for="image-upload" >
+      <img src="{{avatar}}"> 
+    </label>
+    <input class="file-input" id="image-upload"  type="file" (change)="updateImage($event)" >
+  </div>
+  <div class="center">
+    <h2 (click)="editname()">{{displayName}}</h2>
+  </div>
+  <div class="center">
+    Tap on your Image or Name to change it.
+  </div>
+  <div class="spacer" style="height: 10px;"></div>
+  <div class="center">
+    <ion-button  fill="outline" shape="round" color="danger" (click)="logout()">Logout</ion-button>
+    <ion-button  fill="outline" shape="round" color="tertiary" (click)= "auth.resetPassword()">Reset Password</ion-button>
+  </div>
+  <div class="center">
+      <p> Activate Message Notifications </p>
+      <ion-button class="color" (click)="fcm.requestPermission()">Grant Permission</ion-button>
+      <ion-button class="color" (click)="fcm.sub('messages')">Subscribe to Topic</ion-button>
+  </div>
+</div>
+</ion-content>
