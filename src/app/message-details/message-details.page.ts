@@ -46,19 +46,21 @@ export class MessageDetailsPage implements OnInit {
 ngOnInit() {
   this.cmg = [];
   this.cmg = this.messageservice.loadAllContactMessages(this.id);
-  let that = this;
-  setTimeout(()=>{that.content.scrollToBottom();},2000); 
+  //let that = this;
+ // setTimeout(()=>{that.content.scrollToBottom();},2000); 
 }
 
+/*
   scrollto() {
     setTimeout(() => {
       this.content.scrollToBottom();
     }, 1000); 
   }
+  */
   addmessage() {  
    if (this.id) {
       this.messageservice.addmessage(this.id,this.newmessage); //add message to database
-      this.content.scrollToBottom(); //scroll to bottom after sending message
+      //this.content.scrollToBottom(); //scroll to bottom after sending message
       this.messageservice.sendSMS(this.id,this.newmessage);  //send sms to contact
       this.newmessage = '';  //clear the text bar
      

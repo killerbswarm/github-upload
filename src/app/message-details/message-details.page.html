@@ -5,49 +5,62 @@
         <ion-back-button  defaultHref="tabs/(messages:messages)"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-  
-  <ion-content #content>
-  <div class = "chat">
-      <ion-list no-lines class="chatlist">
-          <ion-item *ngFor = "let item of messageservice.allmessages" text-wrap class="test">
+</ion-header>
+
+<ion-content #content>
+  <div class = "scroll-content">
+    <div>
+     <div *ngFor = "let item of messageservice.allmessages">
             <!-- contact message -->
-            <ion-avatar *ngIf="item.sentby === id">
-              <img   src="{{photoURL}}">
-            </ion-avatar>
-            <div class="bubble me" *ngIf="item.sentby === id">
-              <h3>{{item.message}}</h3>
-              <p class="ts-left" > sent {{item.date  | date: 'MM/dd/yyyy H:mm'  }} </p>
+            <div class="leftside" *ngIf="item.sentby === id" >
+              <div class="">
+                <ion-avatar >
+                  <img src="{{photoURL}}">
+                </ion-avatar>
+              </div>
+              <div class="bubble contact">
+                <h3>{{item.message}}</h3>
+                <p class="ts-left" > sent {{item.date  | date: 'MM/dd/yyyy H:mm'  }} </p>
+              </div>
             </div>
-            <!-- system message  -->
-            <div class="bubble center" slot="end" *ngIf="item.sentby === messageservice.systemMessage">
+          
+          <!-- system message  -->
+          <div class="rightside" *ngIf="item.sentby === messageservice.systemMessage">
+            <div class="img">
+              <ion-avatar  >
+                <img src="{{item.admin.photoURL}}"> 
+              </ion-avatar>
+            </div>
+            <div class="system bubble " >
               <h3 > {{item.message}} </h3>
               <p class="ts-system"> sent {{item.date  | date: 'MM/dd/yyyy H:mm'  }} </p>
             </div>
-            <ion-avatar slot="end"  *ngIf="item.sentby === messageservice.systemMessage">
-                <img src="{{item.admin.photoURL}}"> 
-              </ion-avatar>
-            <!-- admin message -->
-              <div class="bubble you" slot="end" *ngIf="item.sentby != id && item.sentby != messageservice.systemMessage">
-                <h3 >{{item.message}}</h3> 
-                <p class="ts-right"> sent {{item.date  | date: 'MM/dd/yyyy H:mm'  }} </p>
-              </div>
-              <ion-avatar slot="end" *ngIf="item.sentby != id && item.sentby != messageservice.systemMessage">
-                  <img src="{{item.admin.photoURL}}">
-              </ion-avatar>
-           </ion-item>
-        </ion-list>
+          </div>
+
+          <!-- admin message -->
+          <div class="rightside" *ngIf="item.sentby != id && item.sentby != messageservice.systemMessage">
+            <div class="img right" >
+              <ion-avatar>
+              <img src="{{item.admin.photoURL}}">
+            </ion-avatar>
+            </div>
+            <div class="bubble admin right" >
+              <h3 >{{item.message}}</h3> 
+              <p class="ts-right"> sent {{item.date  | date: 'MM/dd/yyyy H:mm'  }} </p>
+            </div>
+          </div>
+          </div>
   </div>
-  </ion-content>
-  <ion-footer ion-fixed>    
-    <ion-toolbar class="mb"> 
-        <ion-buttons end>       
-     <!-- <ion-input [(ngModel)]="newmessage" autocomplete="on" spellcheck="true" (keyup.enter)="addmessage()" placeholder="Write your message ..."></ion-input> 
-     --> 
+</div>
+</ion-content>
+
+<ion-footer ion-fixed>    
+  <ion-toolbar class="mb"> 
+    <ion-buttons end>       
       <ion-textarea class="messagesendtext" rows="1" [(ngModel)]="newmessage" autocomplete="on" spellcheck="true" (keyup.enter)="addmessage()" placeholder="Write your message ..." autosize></ion-textarea>
       <ion-button (click)="addmessage()">
-          <ion-icon name="send" color="secondary"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>    
-  </ion-footer>
+        <ion-icon name="send" color="secondary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>    
+</ion-footer>
