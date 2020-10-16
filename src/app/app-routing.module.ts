@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'contact-add', loadChildren: './contact-add/contact-add.module#ContactAddPageModule' },
   { path: 'contact-details', loadChildren: './contact-details/contact-details.module#ContactDetailsPageModule' },
-  { path: 'message-details', loadChildren: './message-details/message-details.module#MessageDetailsPageModule' }
+  { path: 'message-details', loadChildren: './message-details/message-details.module#MessageDetailsPageModule' },
+  { path: 'punchcard', loadChildren: './punchcard/punchcard.module#PunchcardPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

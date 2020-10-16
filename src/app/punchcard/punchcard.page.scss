@@ -1,0 +1,40 @@
+.use {
+    --color: white;
+    --border: 1px;
+    --border-color: white;
+}
+h3{
+    text-align: center;
+}
+.punchamount {
+    font-size: 20px;
+    
+}
+.pctoast{
+    text-align: center;
+}
+.header {
+    color: white;
+}
+.add {
+    color: white;
+}
+.title {
+    margin-left:40px;
+}
+.pcheader {
+    --background: #3171e0;
+    color: white;
+}
+.contactList{
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    min-width: 80%;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px 1px;
+    z-index: 1;
+}
+.contact{
+    width: 100%;
+}

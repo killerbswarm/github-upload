@@ -13,8 +13,8 @@ import { collectionData, docData } from 'rxfire/firestore';
 import { combineLatest } from 'rxjs'; 
 import { switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders,HttpErrorResponse } from '@angular/common/http'
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { HttpHeaders,HttpErrorResponse } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })

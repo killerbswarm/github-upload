@@ -26,7 +26,6 @@ export class AuthService {
   }
 
   login(credentials: admincreds) {
-    console.log(credentials);
     var promise = new Promise((resolve, reject) => {
       this.firebaseAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password).then(() => {
         resolve(true);

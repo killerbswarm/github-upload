@@ -29,7 +29,6 @@ export class LoginPage implements OnInit {
     })
   }
   login() {
-    console.log(this.credentials)
     this.authService.login(this.credentials).then((res: any) => {
       if (!res.code)
         this.route.navigateByUrl('/tabs/(messages:messages)');

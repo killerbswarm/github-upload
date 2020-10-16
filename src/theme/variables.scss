@@ -93,3 +93,87 @@
   margin-right: auto;
   width: 50%;
 }
+
+.secondary{
+  background-color: rgb(13, 106, 112);
+  color: black !important;
+  button{
+      color: black !important;
+  }
+}
+.alertcancel {
+  background-color: rgb(13, 106, 112);
+  color: red !important;
+  button{
+      color: red !important;
+  }
+}
+.alertokay {
+  background-color: rgb(13, 106, 112);
+  color: black !important;
+  button{
+      color: black !important;
+  }
+}
+ion-toast.toast .toast-wrapper {
+  border-radius: 0.65rem !important;
+  width: 400px;
+  text-align: center;
+}
+ion-toast.error .toast-wrapper {
+  border-radius: 0.65rem !important;
+  width: 400px;
+  text-align: center;
+  background: red;
+}
+.adminAlert {
+  .alert-title{
+    color:#d7d8da;
+    font-size: 14px;
+  }
+  .alert-sub-title{
+    color:white;
+  }
+  .alert-head {
+    background-color: red;
+    color: white !important;
+    text-align: center !important;
+    }
+    .alert-message {
+      padding-top: 10px;
+      color:grey;
+      font-size: 10px;
+      text-align: center !important;
+    }
+}
+.refillAlert {
+  .alert-title{
+    color:white;
+  }
+  .alert-head {
+    background-color:var(--ion-color-primary);
+    text-align: center;
+    }
+    .alert-message {
+    color: grey;
+    text-align: left;
+    }
+}
+.addNewAlert {
+      .alert-title{
+        color:#d7d8da;
+        font-size: 14px;
+      }
+      .alert-sub-title{
+        color:white;
+      }
+      .alert-head {
+        background-color:var(--ion-color-danger-shade);
+        text-align: center;
+        color: white;
+        }
+        .alert-message {
+        color: grey;
+        }
+      
+}

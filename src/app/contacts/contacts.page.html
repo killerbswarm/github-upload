@@ -11,32 +11,64 @@
   
   
   <ion-content>
-    <ion-searchbar (input)="searchuser($event)" (ionClear)="resetChanges()" placeholder="Search"></ion-searchbar>
+    <ion-searchbar (input)="search($event)" (ionClear)="resetChanges1()" placeholder="Search"></ion-searchbar>
+
   <ion-list >
-    <ion-list >
-      <ion-item-sliding *ngFor="let contact of filteredcontacts">
-        <ion-item >
-          <ion-avatar item-left class="avatar">
-            <img src="{{contact.photoURL}}">
-          </ion-avatar>
-          <h2 class="listing">{{contact.displayName}}</h2>
-        </ion-item>
-        <ion-item-options slide="left">
-          <ion-button color="secondary" (click)="messageContact(contact)">
-                <ion-icon name="send"></ion-icon>
-                Send Message
-          </ion-button>
-          <ion-button class="editbutton" (click)="viewContact(contact.id)">
-            <ion-icon name="person-add"></ion-icon>
-            Edit
-          </ion-button>
-          <ion-button color="danger" (click)="deleteContact(contact.id)">
-            <ion-icon name="trash"></ion-icon>
-            Delete
-          </ion-button>
-        </ion-item-options>
-        
-      </ion-item-sliding>
+      <div *ngIf="!toggled" class="notice">
+        <h3>Search for User</h3>
+        <p>Swipe Left on Result  <b>*Case Sensative</b></p> 
+        <button (click)="contactservice.getFullList()">Click to get a Full Listing</button>
+        <ion-item-sliding class="contact" *ngFor="let contact of contactservice.fullContacts | async">
+            <div>
+              <ion-item  >
+                <ion-avatar item-left class="avatar">
+                  <img src="{{contact.photoURL}}">
+                </ion-avatar>
+                <h2 class="listing" >{{contact.displayName}}</h2>
+              </ion-item>
+              <ion-item-options slide="left">
+                <ion-button color="secondary" (click)="messageContact(contact)">
+                      <ion-icon name="send"></ion-icon>
+                      
+                </ion-button>
+                <ion-button class="editbutton" (click)="viewContact(contact.uid)">
+                  <ion-icon name="create"></ion-icon>
+                  
+                </ion-button>
+                <ion-button color="danger" (click)="deleteContact(contact.uid)">
+                  <ion-icon name="trash"></ion-icon>
+                  
+                </ion-button>
+              </ion-item-options>
+            </div>
+            </ion-item-sliding>
+      </div>
+    <ion-list  #slidingList>
+          <ion-item-sliding class="contact" *ngFor="let contact of contacts">
+              <div>
+                <ion-item  >
+                  <ion-avatar item-left class="avatar">
+                    <img src="{{contact.photoURL}}">
+                  </ion-avatar>
+                  <h2 class="listing" >{{contact.displayName}}</h2>
+                </ion-item>
+                <ion-item-options slide="left">
+                  <ion-button color="secondary" (click)="messageContact(contact)">
+                        <ion-icon name="send"></ion-icon>
+                        
+                  </ion-button>
+                  <ion-button class="editbutton" (click)="viewContact(contact.uid)">
+                    <ion-icon name="create"></ion-icon>
+                    
+                  </ion-button>
+                  <ion-button color="danger" (click)="deleteContact(contact.uid)">
+                    <ion-icon name="trash"></ion-icon>
+                    
+                  </ion-button>
+                </ion-item-options>
+              </div>
+              </ion-item-sliding>
+
+      </ion-list>
     </ion-list>
-  </ion-list>
   </ion-content>

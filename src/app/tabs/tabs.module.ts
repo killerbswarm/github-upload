@@ -14,6 +14,7 @@ import { ProfilePageModule } from '../profile/profile.module';
 import { ContactAddPageModule } from '../contact-add/contact-add.module';
 import { ContactDetailsPageModule } from '../contact-details/contact-details.module';
 import { MessageDetailsPageModule } from '../message-details/message-details.module';
+import { PunchcardPageModule } from '../punchcard/punchcard.module';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MessageDetailsPageModule } from '../message-details/message-details.mod
     ProfilePageModule,
     ContactAddPageModule,
     ContactDetailsPageModule,
-    MessageDetailsPageModule
+    MessageDetailsPageModule,
+    PunchcardPageModule
   ],
   declarations: [TabsPage]
 })

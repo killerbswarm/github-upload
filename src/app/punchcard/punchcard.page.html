@@ -1,0 +1,55 @@
+<ion-header> 
+  <ion-toolbar class="pcheader">
+    <ion-title class="title">Member PunchCards</ion-title>
+    <ion-buttons slot="end" color="secondary">
+        <ion-button icon-only (click)="toggle()" color="secondary">
+          <ion-icon name="add" class="add"></ion-icon>
+        </ion-button>
+      </ion-buttons> 
+    </ion-toolbar>
+ 
+</ion-header>
+  
+  
+<ion-content>
+    <ion-searchbar *ngIf="toggled" (input)="search($event)" (ionClear)="resetChanges()" placeholder="Search"></ion-searchbar>
+   
+    <div *ngIf="toggled">
+      <ion-list>
+    <ion-item class="contact" *ngFor="let contact of contacts">
+    <ion-item  class="contactList" (click)="addPunchToContact(contact)" *ngIf="contacts?.length > 0">
+      <div >{{contact.displayName}}</div>
+    </ion-item>
+     </ion-item>
+      </ion-list>
+    </div>
+  <ion-list #slidingList>
+    <h3>Slide left on your name</h3>
+      <div *ngFor="let punch of punchCard | async ">
+  <div *ngIf="!punch">loading... Please wait</div>
+          <div *ngIf="punch">
+    <ion-item-sliding  >
+      <ion-item >
+          <h2 class="listing">{{punch.contact.displayName}}</h2>
+      </ion-item>
+      <ion-item-options>
+          <ion-button fill="clear" color="secondary">
+              <div class="punchamount"> Punches Remaining: {{punch.amount}}</div>
+          </ion-button>
+          <ion-button (click)="usePunch(punch)" color="secondary">
+                <ion-icon name="happy"></ion-icon>
+                Punch!
+          </ion-button>
+          <ion-button color="tertiary" (click)="addPunch(punch)">
+            <ion-icon name="add"></ion-icon>
+            Refill
+          </ion-button>
+          <ion-button color="danger" (click)="editPunch(punch)">
+        <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+    </div>
+  </div>
+  </ion-list>
+</ion-content>

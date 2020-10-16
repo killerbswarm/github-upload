@@ -11,6 +11,7 @@ import { ContactAddPage } from '../contact-add/contact-add.page';
 import { ContactDetailsPage } from '../contact-details/contact-details.page';
 import { AuthGuard } from '../auth.guard';
 import { MessageDetailsPage } from '../message-details/message-details.page';
+import { PunchcardPage } from '../punchcard/punchcard.page';
 
 const routes: Routes = [
   {
@@ -38,6 +39,12 @@ const routes: Routes = [
         path: 'profile',
         outlet: 'profile',
         component: ProfilePage,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'punchcard',
+        outlet: 'punchcard',
+        component: PunchcardPage,
         canActivate: [AuthGuard]
       },
       { path: "contact-add", 
